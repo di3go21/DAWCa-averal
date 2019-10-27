@@ -1,0 +1,41 @@
+/*
+4º. Escribe un programa que genere aleatoriamente un array de 20 componentes y rote los
+ elementos del array, es decir, el elemento de la posición 0 debe pasar a la posición 1, el de
+ la 1 a la 2, etc. El número que se encuentra en la última posición debe pasar a la posición 0.
+ Finalmente, mostrar el contenido del array.
+ */
+package Masejerccios.Arrayshoja2;
+
+import java.util.Scanner;
+
+/**
+ * @author diego
+ */
+public class E3array2 {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int min, max;
+        int bag[] = new int[20];
+        for (int i = 0; i < bag.length; i++) {
+            bag[i] = (int) (Math.random() * 50 + 1);
+            System.out.print(bag[i] + " ");
+        }
+        min = bag[0];
+        max = bag[0];
+        System.out.println("");
+        for (int i = 1; i < bag.length; i++) {
+            if (bag[i] < min) {
+                min = bag[i];
+            }
+            if (bag[i] > max) {
+                max = bag[i];
+            }
+
+        }
+
+        System.out.println(" el maximo es " + max);
+        System.out.println("el minimo es " + min);
+
+    }
+}
