@@ -1,0 +1,71 @@
+/*
+8º. Escribe un programa que muestre por pantalla un array de 10 números enteros generados al
+ azar entre 0 y 100. A continuación, el programa debe pedir un número al usuario. Se debe
+ comprobar que el número introducido por teclado se encuentra dentro del array, en caso
+ contrario se mostrará un mensaje por pantalla y se volverá a pedir un número; así hasta que
+ el usuario introduzca uno correctamente. A continuación, el programa rotará el array hacia la
+ derecha las veces que haga falta hasta que el número introducido quede situado en la posición
+ 0 del array. Por último, se mostrará el array rotado por pantalla
+ */
+package Masejerccios.Arrayshoja2;
+
+import java.util.Scanner;
+
+/*
+ * @author diego
+ */
+public class E8arrays2 {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int numeros[] = new int[10];
+        int n, x, c = 0, d = 0;
+        //creamos el array
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = (int) (Math.random() * 99 + 1);
+        }
+        //lo pintamos para verlo
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print(numeros[i] + " ");
+        }
+        System.out.println("");
+        //creamos un filtro do while para sabe si está dentro del array el numero introducido o no
+        do {
+            System.out.println("dime un número, para comprobar que está dentro del array");
+            n = teclado.nextInt();
+            //bucle for que lea todos los numeros del array
+            for (int i = 0; i < numeros.length; i++) {
+                //creamos un if para saber si alguno es igual al numero introducido
+                if (n == numeros[i]) //si alguno es igual pues aumenta el contador y sale del bucle do while
+                {
+                    c++;
+                }
+            }
+        } while (c == 0);
+        //ahora empezamos las rotaciones
+        //este if es por si se mete el número que ya estaba el primero del array
+        if (n == numeros[0]) {
+            System.out.println("era el primero");
+        }
+        //el bucle que va a rotar el array es este while, que dejará de rotar si n es la primera posicion
+        while (numeros[0] != n) {
+            //para no machacar el numero de partida (9) guardamos su valor en una variable x
+            x = numeros[numeros.length - 1];
+            //rotamos desde la posicion [9] que será el valor de la 8, la [8] de la 7, etc etc
+            for (int i = numeros.length - 1; i > 0; i--) {
+                numeros[i] = numeros[(i - 1)];
+            }
+            //como han cambiado todas las posiciones menos la 0, le damos el valor de x que antes guardamos
+            numeros[0] = x;
+            d++;//esta d es un contador que contará las vueltas(es opcional)
+        }
+        //por ultimo pintamos el array final, donde n será las posicion [0] después de...
+        //...rotar el array hasta q se cumplió esta condicion
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print(numeros[i] + " ");
+
+        }
+        System.out.println("numero de vueltas: " + d);
+
+    }
+}
