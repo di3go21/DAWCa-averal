@@ -1,0 +1,63 @@
+/*
+7º. Escribe un programa que rellene un array de 20 elementos con números enteros aleatorios
+ comprendidos entre 0 y 400 (ambos incluidos). A continuación el programa mostrará el array
+ y preguntará si el usuario quiere resaltar los múltiplos de 5 o los múltiplos de 7. Seguidamente
+ se volverá a mostrar el array escribiendo los números que se quieren resaltar entre corchetes.
+Ejemplo:
+ 159 204 20 250 178 90 353 32 229 357 224 54 260 310 140 249 335 326 223 13
+ ¿Qué números quiere resaltar? (1 – los múltiplos de 5, 2 – los múltiplos de 7): 1
+ 159 204 [20] [250] 178 [90] 353 32 229 357 224 54 [260] [310] [140] 249 [335] 326 223 13
+
+ */
+package Masejerccios.Arrayshoja2;
+
+import java.util.Scanner;
+
+/*
+ * @author diego
+ */
+public class E7arrays2 {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int[] numeros = new int[20];
+        int n, c = 0;
+        //creamos el array con los numeros random
+        
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = (int) (Math.random() * 401);
+        }
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print(numeros[i] + " ");
+        }
+        System.out.println("");
+        do {
+            if (c == 0) {
+                System.out.println("dime que quieres, los multiplos de 5(escribe 5) o de 7 (escribre 7)?");
+                n = teclado.nextInt();
+                c++;
+            } else {
+                System.out.println("eres tonto? escribe 5 o 7 para guardar los multiplos!");
+                n = teclado.nextInt();
+            }
+        } while (n != 5 && n != 7);
+
+        if (n == 5) {
+            for (int i = 0; i < numeros.length; i++) {
+                if ((numeros[i] % 5) == 0) {
+                    System.out.print("[" + numeros[i] + "] ");
+                } else {
+                    System.out.print(numeros[i] + " ");
+                }
+            }
+        } else {
+            for (int i = 0; i < numeros.length; i++) {
+                if ((numeros[i] % 7) == 0) {
+                    System.out.print("[" + numeros[i] + "] ");
+                } else {
+                    System.out.print(numeros[i] + " ");
+                }
+            }
+        }
+    }
+}
