@@ -16,7 +16,7 @@ public class E6arrays2 {
         Scanner teclado = new Scanner(System.in);
         int n;
         int temp[] = new int[12];
-        String[] mes = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
+        String[] mes = {"ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"};
 
         for (int i = 0; i < temp.length; i++) {
             System.out.println("dime la temperatura del mes " + mes[i]);
