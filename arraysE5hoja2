@@ -1,0 +1,50 @@
+/*
+5º. Escribe un programa que genere 100 números aleatorios del 0 al 20 y que los muestre por
+ pantalla separados por espacios. El programa pedirá entonces por teclado dos valores y a
+ continuación cambiará todas las ocurrencias del primer valor por el segundo en la lista
+ generada anteriormente. Los números que se han cambiado deben aparecer entrecomillados
+ */
+package Masejerccios.Arrayshoja2;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author di3go21
+ */
+public class E5arrays2 {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int n, m;
+//creamos el arrray, lo he hecho de 30 espacios y de 0 a 11 los valores para ver que está bien
+        int bag[] = new int[30];
+        for (int i = 0; i < bag.length; i++) {
+            bag[i] = (int) (Math.random() * 11);
+         //los pinto para verlos en pantalla
+            System.out.print(bag[i] + " ");
+        }
+//le pedimos los valores que queremos cambiar y la cifra nueva
+        System.out.println(" ");
+        System.out.println("dime un número que no te gustó");
+        n = teclado.nextInt();
+        System.out.println("ahora dime el que te molaria que estuviese ahi ");
+        m = teclado.nextInt();
+//este bucle for va comprobando todos los valores del array
+//metemos un if en el que sustituye los valores n del array por el numero m nuevo que nos gusta más
+        for (int i = 0; i < bag.length; i++) {
+
+            if (bag[i] == n) {
+                //aquí lo sustituimos              
+                bag[i] = m;
+//como lo pide entre comillas en este caso pues lo pintamos entre comillas
+                System.out.print("\"" + bag[i] + "\" ");
+            } else {
+//si no ponemos else va a dar problemas ya que va a pintar el numero dos veces, compruebalo
+                System.out.print(bag[i] + " ");
+            }
+
+        }
+
+    }
+}
