@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 Hola me llamo pedro
+=======
+123
+defhij
+456
+>>>>>>> rama2
